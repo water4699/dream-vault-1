@@ -115,7 +115,7 @@ export const useDreamJournal = (parameters: {
   }, [dreamJournal.address, ethersReadonlyProvider, ethersSigner, isLoading]);
 
   // Load user's dreams
-  const loadDreams = useCallback(() => {
+  const loadDreams = useCallback(async () => {
     if (isLoadingRef.current) {
       return;
     }
@@ -146,54 +146,50 @@ export const useDreamJournal = (parameters: {
       thisEthersReadonlyProvider
     );
 
-    const run = async () => {
-      try {
-        const userAddress = await thisEthersSigner.getAddress();
-        const dreamIds = await contract.getDreamIds(userAddress);
-        
-        if (
-          !sameChain.current(thisChainId) ||
-          thisContractAddress !== dreamJournalRef.current?.address
-        ) {
-          return;
-        }
-
-        const dreamList: Dream[] = [];
-        
-        for (let i = 0; i < dreamIds.length; i++) {
-          const id = dreamIds[i];
-          const [owner, title, createdAt] = await contract.getDreamMeta(id);
-          
-          dreamList.push({
-            id: BigInt(id),
-            title,
-            owner,
-            createdAt: BigInt(createdAt),
-          });
-        }
-
-        if (
-          sameChain.current(thisChainId) &&
-          thisContractAddress === dreamJournalRef.current?.address
-        ) {
-          setDreams(dreamList);
-          setMessage(`Loaded ${dreamList.length} dream(s)`);
-        }
-      } catch (e) {
-        setMessage("Failed to load dreams: " + e);
-        if (
-          sameChain.current(thisChainId) &&
-          thisContractAddress === dreamJournalRef.current?.address
-        ) {
-          setDreams([]);
-        }
-      } finally {
-        isLoadingRef.current = false;
-        setIsLoading(false);
+    try {
+      const userAddress = await thisEthersSigner.getAddress();
+      const dreamIds = await contract.getDreamIds(userAddress);
+      
+      if (
+        !sameChain.current(thisChainId) ||
+        thisContractAddress !== dreamJournalRef.current?.address
+      ) {
+        return;
       }
-    };
 
-    run();
+      const dreamList: Dream[] = [];
+      
+      for (let i = 0; i < dreamIds.length; i++) {
+        const id = dreamIds[i];
+        const [owner, title, createdAt] = await contract.getDreamMeta(id);
+        
+        dreamList.push({
+          id: BigInt(id),
+          title,
+          owner,
+          createdAt: BigInt(createdAt),
+        });
+      }
+
+      if (
+        sameChain.current(thisChainId) &&
+        thisContractAddress === dreamJournalRef.current?.address
+      ) {
+        setDreams(dreamList);
+        setMessage(`Loaded ${dreamList.length} dream(s)`);
+      }
+    } catch (e) {
+      setMessage("Failed to load dreams: " + e);
+      if (
+        sameChain.current(thisChainId) &&
+        thisContractAddress === dreamJournalRef.current?.address
+      ) {
+        setDreams([]);
+      }
+    } finally {
+      isLoadingRef.current = false;
+      setIsLoading(false);
+    }
   }, [ethersReadonlyProvider, ethersSigner, sameChain]);
 
   // Auto load dreams - use ref to prevent infinite loop
