@@ -1,0 +1,38 @@
+{
+  "pages": {
+    "/page": [
+      "static/chunks/9e883_7a32f8a1._.js",
+      "static/chunks/9e883_next_dist_8f9a319a._.js",
+      "static/chunks/9e883_@tanstack_query-core_build_modern_cae8cd39._.js",
+      "static/chunks/9e883_@wagmi_core_dist_esm_59204417._.js",
+      "static/chunks/9e883_@rainbow-me_rainbowkit_dist_4b0f7d1f._.js",
+      "static/chunks/9e883_viem__esm_fd8fb941._.js",
+      "static/chunks/9e883_1e97dd00._.js",
+      "static/chunks/9e883_b6aded27._.js",
+      "static/chunks/9e883_ox__esm_5b7a1290._.js",
+      "static/chunks/9e883_529113c7._.js",
+      "static/chunks/frontend_69a779d6._.js",
+      "static/chunks/frontend_9bd8068f._.css",
+      "static/chunks/frontend_app_layout_tsx_c11d305c._.js",
+      "static/chunks/9e883_next_dist_client_components_builtin_global-error_bb7a6427.js",
+      "static/chunks/frontend_fhevm_internal_mock_fhevmMock_ts_fcd42762._.js",
+      "static/chunks/frontend_2425034a._.js",
+      "static/chunks/9e883_ethers_lib_esm_utils_4ec8eab5._.js",
+      "static/chunks/9e883_ethers_lib_esm_abi_ff328076._.js",
+      "static/chunks/9e883_ethers_lib_esm_providers_46cfbd04._.js",
+      "static/chunks/9e883_ethers_lib_esm_9c8c732a._.js",
+      "static/chunks/9e883_@noble_curves_esm_45ad6567._.js",
+      "static/chunks/9e883_8de1f28e._.js",
+      "static/chunks/frontend_app_page_tsx_bb7a6427._.js",
+      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_51deae60._.js",
+      "static/chunks/9e883_next_dist_compiled_react-dom_33d456f8._.js",
+      "static/chunks/9e883_next_dist_compiled_next-devtools_index_e18dabda.js",
+      "static/chunks/9e883_next_dist_compiled_649610a4._.js",
+      "static/chunks/9e883_next_dist_client_af6cb9d5._.js",
+      "static/chunks/9e883_next_dist_0e511d54._.js",
+      "static/chunks/9e883_@swc_helpers_cjs_652634af._.js",
+      "static/chunks/frontend_a0ff3932._.js",
+      "static/chunks/turbopack-frontend_a50d7e93._.js"
+    ]
+  }
+}
