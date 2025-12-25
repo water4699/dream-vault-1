@@ -111,7 +111,7 @@ export const useDreamJournal = (parameters: {
   }, [dreamJournal.address, ethersSigner, isCreating, isLoading]);
 
   const canLoadDreams = useMemo(() => {
-    return dreamJournal.address && ethersReadonlyProvider && ethersSigner && !isLoading;
+    return Boolean(dreamJournal.address && ethersReadonlyProvider && ethersSigner && !isLoading);
   }, [dreamJournal.address, ethersReadonlyProvider, ethersSigner, isLoading]);
 
   // Load user's dreams
