@@ -359,7 +359,7 @@ export const createFhevmInstance = async (parameters: {
     }
   }
 
-  if (isMock) {
+  if (isMock && rpcUrl) {
     const fhevmRelayerMetadata =
       await tryFetchFHEVMHardhatNodeRelayerMetadata(rpcUrl);
 
